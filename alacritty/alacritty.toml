@@ -2,6 +2,7 @@
 opacity = 0.8
 
 [font]
-normal = { family = "PitchTT", style = "Regular" }
-
+normal = { family = "VulfMono", style = "Regular" }
+offset.x = 0
+offset.y = 3
 

@@ -62,8 +62,8 @@
 #waybar {
 	background: rgba(40, 40, 40, 0.8784313725); /* #282828e0 */
 	color: @white;
-	font-family: PitchTT;
-	font-size: 11pt;
+	font-family: VulfMono;
+	font-size: 10pt;
 }
 
 /* Each module */
@@ -212,7 +212,7 @@
 #custom-arrow2 {
 	font-size: 11pt;
 	color: @date;
-	background: @layout;
+	background: @cpu;
 }
 
 #custom-arrow3 {

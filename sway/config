@@ -9,9 +9,22 @@ output * {
     bg ~/.background.jpg fill
 }
 
-# MacBook display
-output "Unknown Unknown Unknown" {
-    scale 1.5
+# Left haystack display
+output "LG Electronics LG ULTRAWIDE 0x00017025" {
+       mode 2560x1080@59.978Hz
+       pos 0 0 
+}
+
+# Middle haystack display
+output "Apple Computer Inc iMac" {
+       mode 2560x1440@59.952Hz
+       pos 2827 0
+}
+
+# Right haystack display
+output "ViewSonic Corporation VX2739 Series RKD1049020740" {
+       mode 1920x1080@60.000Hz
+       pos 5120 0
 }
 
 input "type:touchpad" {
