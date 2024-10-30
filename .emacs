@@ -3,8 +3,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(TeX-command-list
+   '(("LaTeX" "pdflatex --shell-escape %s.tex" TeX-run-TeX nil
+      (LaTeX-mode docTeX-mode)
+      :help "Run LaTeX")
+     ("View" "zathura %s.pdf" TeX-run-discard-or-function t t :help "Run Viewer")))
  '(custom-enabled-themes '(tango-dark))
- '(package-selected-packages '(multiple-cursors)))
+ '(package-selected-packages '(typescript-mode rust-mode auctex multiple-cursors)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
