@@ -16,9 +16,9 @@ output "LG Electronics LG ULTRAWIDE 0x00017025" {
 }
 
 # Middle haystack display
-output "Apple Computer Inc iMac" {
+output "Apple Computer Inc iMac Unknown" {
        mode 2560x1440@59.952Hz
-       pos 2827 0
+       pos 2560 0
 }
 
 # Right haystack display
