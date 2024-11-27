@@ -1,6 +1,8 @@
+(package-initialize)
+(require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

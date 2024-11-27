@@ -212,7 +212,7 @@
 #custom-arrow2 {
 	font-size: 11pt;
 	color: @date;
-	background: @battery;
+	background: @cpu;
 }
 
 #custom-arrow3 {
