@@ -212,13 +212,13 @@
 #custom-arrow2 {
 	font-size: 11pt;
 	color: @date;
-	background: @battery;
+	background: @cpu;
 }
 
 #custom-arrow3 {
 	font-size: 11pt;
-	color: @battery;
-	background: @cpu;
+	color: @layout;
+	background: @battery;
 }
 
 #custom-arrow4 {
