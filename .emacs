@@ -1,13 +1,11 @@
 (package-initialize)
 (require 'package)
+(require 'multiple-cursors)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(TeX-command-list
    '(("LaTeX" "pdflatex --shell-escape %s.tex" TeX-run-TeX nil
       (LaTeX-mode docTeX-mode)
@@ -18,45 +16,38 @@
    '(smex jinx jit-spell auto-correct auto-complete typescript-mode rust-mode auctex multiple-cursors)))
 
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(error ((t (:foreground "color-223"))))
  '(jinx-misspelled ((t (:underline (:color "brightcyan" :style wave :position nil) :inherit error))))
  '(org-block ((t (:background "#A9A9A9" :foreground "#000000")))))
 
-(require 'multiple-cursors)
-(global-set-key (kbd "C-c C-l") 'mc/edit-lines)
+;; Multiple cursors bindings
+(global-set-key (kbd "C-c C-m C-e") 'mc/edit-ends-of-lines)
+(global-set-key (kbd "C-c C-m C-a") 'mc/edit-beginnings-of-lines)
+(global-set-key (kbd "C-c C-m C-p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-m C-n") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c C-m C-m") 'mc/mark-all-like-this)
 
-(global-set-key (kbd "C-c C-p") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-n") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c C-a") 'mc/mark-all-like-this)
-
+;; Enable autocomplete
 (global-auto-complete-mode)
+
+;; Enable compilation mode
 (compilation-minor-mode)
 
 ;; Enable xterm mouse mode
 (xterm-mouse-mode)
 
-(setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
-  backup-by-copying t    ; Don't delink hardlinks
-  version-control t      ; Use version numbers on backups
-  delete-old-versions t  ; Automatically delete excess backups
-  kept-new-versions 20   ; how many of the newest versions to keep
-  kept-old-versions 5    ; and how many of the old
-  )
-
 ;; Enable relative line numbers
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode 1)
+
+;; Enable ido mode
 (ido-mode 1)
 (ido-everywhere 1)
+
+;; Set spellcheck
 (setq ispell-program-name "aspell")
 
-(setq visible-bell t)
-
-;; fontify code in code blocks
+;; Org mode source block styling
 (setq org-src-fontify-natively t)
 
 (defface org-block-begin-line
