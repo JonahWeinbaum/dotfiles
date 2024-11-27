@@ -9,20 +9,23 @@ output * {
     bg ~/.background.jpg fill
 }
 
-# Left haystack display
-output "LG Electronics LG ULTRAWIDE 0x00017025" {
+set $disp1 "LG Electronics LG ULTRAWIDE 0x00017025"
+set $disp2 "Apple Computer Inc iMac Unknown"
+set $disp3 "ViewSonic Corporation VX2739 Series RKD104920740"
+# Left haystack displa6
+output $disp1 {
        mode 2560x1080@59.978Hz
        pos 0 0 
 }
 
 # Middle haystack display
-output "Apple Computer Inc iMac Unknown" {
+output $disp2 {
        mode 2560x1440@59.952Hz
        pos 2560 0
 }
 
 # Right haystack display
-output "ViewSonic Corporation VX2739 Series RKD1049020740" {
+output  $disp3 {
        mode 1920x1080@60.000Hz
        pos 5120 0
 }
@@ -50,6 +53,7 @@ exec swayidle -w \
 
 bindsym $mod+Shift+Return exec alacritty
 bindsym $mod+Shift+s      exec alacritty -e emacs -nw
+bindsym $mod+Shift+m      exec signal
 bindsym $mod+Shift+w      exec librewolf || firefox
 bindsym $mod+Shift+p      exec swaylock -f -c 000000
 bindsym $mod+p            exec bemenu-run --line-height 24
@@ -105,6 +109,20 @@ bindsym $mod+Shift+minus     move container to workspace number 11
 bindsym $mod+Shift+equal     move container to workspace number 12
 bindsym $mod+Shift+backspace move container to workspace number 13
 
+workspace 0 output $disp2
+workspace 1 output $disp2
+workspace 2 output $disp2
+workspace 3 output $disp2
+workspace 4 output $disp2
+workspace 5 output $disp2
+workspace 6 output $disp1
+workspace 7 output $disp1
+workspace 8 output $disp1
+workspace 9 output $disp1
+workspace 10 output $disp3
+workspace 11 output $disp3
+workspace 12 output $disp3
+workspace 13 output $disp3
 floating_modifier $mod
 bindsym $mod+f       floating toggle
 bindsym $mod+Shift+f fullscreen

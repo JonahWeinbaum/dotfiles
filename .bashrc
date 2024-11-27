@@ -42,5 +42,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias diff='colordiff'
 alias objdump='objdump -d -Mintel -l --visualize-jumps --disassembler-color=on'
+alias signal='signal-desktop --ozone-platform=wayland'
 PS1="[${BRIGHT_GREEN}\u${BLUE}@${PURPLE}\h ${BRIGHT_YELLOW}\W${RESET}]\$ "
+
 
