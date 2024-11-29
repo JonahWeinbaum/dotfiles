@@ -4,7 +4,6 @@
 ;; Additional  Archives
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -18,7 +17,7 @@
      ("View" "zathura %s.pdf" TeX-run-discard-or-function t t :help "Run Viewer")))
  '(custom-enabled-themes '(tango-dark))
  '(package-selected-packages
-   '(zig-mode smex jinx auto-correct auto-complete typescript-mode rust-mode auctex multiple-cursors)))
+   '(smex jinx auto-correct auto-complete typescript-mode rust-mode auctex multiple-cursors)))
 
 ;; Spellcheck coloring
 (custom-set-faces
