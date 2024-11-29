@@ -7,29 +7,38 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(TeX-command-list
    '(("LaTeX" "pdflatex --shell-escape %s.tex" TeX-run-TeX nil
       (LaTeX-mode docTeX-mode)
       :help "Run LaTeX")
      ("View" "zathura %s.pdf" TeX-run-discard-or-function t t :help "Run Viewer")))
  '(custom-enabled-themes '(tango-dark))
-  '(package-selected-packages
-   '(smex jinx auto-correct auto-complete typescript-mode rust-mode auctex multiple-cursors)))
+ '(package-selected-packages
+   '(zig-mode smex jinx auto-correct auto-complete typescript-mode rust-mode auctex multiple-cursors)))
 
 ;; Spellcheck coloring
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(error ((t (:foreground "color-223"))))
  '(jinx-misspelled ((t (:underline (:color "brightcyan" :style wave :position nil) :inherit error))))
  '(org-block ((t (:background "#A9A9A9" :foreground "#000000")))))
 
 ;; Multiple cursors bindings
-(global-set-key (kbd "C-c C-m C-e") 'mc/edit-ends-of-lines)
-(global-set-key (kbd "C-c C-m C-a") 'mc/edit-beginnings-of-lines)
-(global-set-key (kbd "C-c C-m C-p") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-m C-n") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c C-m C-m") 'mc/mark-all-like-this)
+(keymap-global-set "C-c C-m C-e" 'mc/edit-ends-of-lines)
+(keymap-global-set "C-c C-m C-a" 'mc/edit-beginnings-of-lines)
+(keymap-global-set "C-c C-m C-p" 'mc/mark-previous-like-this)
+(keymap-global-set "C-c C-m C-n" 'mc/mark-next-like-this)
+(keymap-global-set "C-c C-m C-m" 'mc/mark-all-like-this)
 
 ;; Use replace regexp instead of query replace
+(keymap-global-set "M-%" 'replace-regexp)
 (keymap-global-set "M-%" 'replace-regexp)
 
 ;; Enable autocomplete
@@ -71,6 +80,9 @@
 ;; Better line wrapping for org-mode
 (add-hook 'org-mode-hook (lambda ()
                            (setq display-line-numbers-type 'visual)
+			   (define-key org-mode-map (kbd "C-c C-m") nil)
                            (word-wrap-whitespace-mode t)
 			   (toggle-truncate-lines 0)
 					    ))
+
+
