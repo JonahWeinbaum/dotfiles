@@ -7,19 +7,13 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 (custom-set-variables
-
- ;; Use pdflatex for auctex
  '(TeX-command-list
    '(("LaTeX" "pdflatex --shell-escape %s.tex" TeX-run-TeX nil
       (LaTeX-mode docTeX-mode)
       :help "Run LaTeX")
      ("View" "zathura %s.pdf" TeX-run-discard-or-function t t :help "Run Viewer")))
-
- ;; Theme
  '(custom-enabled-themes '(tango-dark))
-
- ;; Required Packages
- '(package-selected-packages
+  '(package-selected-packages
    '(smex jinx auto-correct auto-complete typescript-mode rust-mode auctex multiple-cursors)))
 
 ;; Spellcheck coloring
@@ -73,3 +67,10 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
+;; Better line wrapping for org-mode
+(add-hook 'org-mode-hook (lambda ()
+                           (setq display-line-numbers-type 'visual)
+                           (word-wrap-whitespace-mode t)
+			   (toggle-truncate-lines 0)
+					    ))
