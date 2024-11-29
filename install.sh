@@ -4,8 +4,10 @@
 safe_link(){
     local src="$1"
     local dest="$HOME/`basename $src`"
-    echo "Symlinking $src -> $dest"
-    [ ! -e "$dest" ] && ln -sf "$src" "$dest"
+    
+    if [ ! -e "$dest" ] && ln -sf "$src" "$dest"; then
+	echo "Symlinking $src -> $dest"
+    fi
 }
 
 # Get path
@@ -14,7 +16,7 @@ DOTFILES=`dirname $SCRIPT_PATH`
 
 # Install other dotfiles
 for f in `ls -A $DOTFILES`; do
-    if [[ "install.sh" != "$f" ]]; then
+    if [[ "install.sh" != "$f" ]] && [[ ".gitignore" != "$f" ]]; then
 	safe_link "$DOTFILES/$f"
     fi
 done

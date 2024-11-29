@@ -1,20 +1,28 @@
 (package-initialize)
 (require 'package)
-(require 'multiple-cursors)
+
+;; Additional  Archives
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 (custom-set-variables
+
+ ;; Use pdflatex for auctex
  '(TeX-command-list
    '(("LaTeX" "pdflatex --shell-escape %s.tex" TeX-run-TeX nil
       (LaTeX-mode docTeX-mode)
       :help "Run LaTeX")
      ("View" "zathura %s.pdf" TeX-run-discard-or-function t t :help "Run Viewer")))
- '(custom-enabled-themes '(tango-dark))
- '(package-selected-packages
-   '(smex jinx jit-spell auto-correct auto-complete typescript-mode rust-mode auctex multiple-cursors)))
 
+ ;; Theme
+ '(custom-enabled-themes '(tango-dark))
+
+ ;; Required Packages
+ '(package-selected-packages
+   '(smex jinx auto-correct auto-complete typescript-mode rust-mode auctex multiple-cursors)))
+
+;; Spellcheck coloring
 (custom-set-faces
  '(error ((t (:foreground "color-223"))))
  '(jinx-misspelled ((t (:underline (:color "brightcyan" :style wave :position nil) :inherit error))))
@@ -26,6 +34,9 @@
 (global-set-key (kbd "C-c C-m C-p") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-m C-n") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-c C-m C-m") 'mc/mark-all-like-this)
+
+;; Use replace regexp instead of query replace
+(keymap-global-set "M-%" 'replace-regexp)
 
 ;; Enable autocomplete
 (global-auto-complete-mode)
