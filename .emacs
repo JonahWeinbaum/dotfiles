@@ -17,7 +17,7 @@
      ("View" "zathura %s.pdf" TeX-run-discard-or-function t t :help "Run Viewer")))
  '(custom-enabled-themes '(tango-dark))
  '(package-selected-packages
-   '(smex jinx auto-correct auto-complete typescript-mode rust-mode auctex multiple-cursors)))
+   '(magit smex jinx auto-correct auto-complete typescript-mode rust-mode auctex multiple-cursors)))
 
 ;; Spellcheck coloring
 (custom-set-faces
