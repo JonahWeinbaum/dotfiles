@@ -40,7 +40,7 @@ input "type:keyboard" {
     repeat_rate 75
 }
 
-font Pitch Regular 11
+font VulfMono Regular 11
 
 default_border none
 
