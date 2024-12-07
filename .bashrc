@@ -65,7 +65,8 @@ export MANROFFOPT="-P -c"
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 alias emacs="emacs -nw"
-alias ls='ls --color=auto'
+alias magit='emacs --eval "(progn (magit-status) (delete-other-windows))"'
+alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias diff='colordiff'
 alias objdump='objdump -d -Mintel -l --visualize-jumps --disassembler-color=on'
