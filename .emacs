@@ -35,6 +35,8 @@
 (keymap-global-set "C-c C-m C-p" 'mc/mark-previous-like-this)
 (keymap-global-set "C-c C-m C-n" 'mc/mark-next-like-this)
 (keymap-global-set "C-c C-m C-m" 'mc/mark-all-like-this)
+(keymap-global-set "C-c ?" 'comment-region)
+(keymap-global-set "C-c M-?" 'uncomment-region)
 
 ;; Use replace regexp instead of query replace
 (keymap-global-set "M-%" 'replace-regexp)
@@ -80,6 +82,7 @@
 (add-hook 'org-mode-hook (lambda ()
                            (setq display-line-numbers-type 'visual)
 			   (define-key org-mode-map (kbd "C-c C-m") nil)
+			   (define-key org-mode-map (kbd "C-c ?") nil)
                            (word-wrap-whitespace-mode t)
 			   (toggle-truncate-lines 0)
 					    ))
