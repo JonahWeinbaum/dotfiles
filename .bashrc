@@ -68,7 +68,9 @@ alias emacs="emacs -nw"
 alias magit='emacs --eval "(progn (magit-status) (delete-other-windows))"'
 alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
-alias diff='colordiff'
+alias gef='gdb --command ~/.gef'
+alias gdb='gdb --command ~/.gdbinit'
+alias diff='git diff --no-index --word-diff --color-words'
 alias objdump='objdump -d -Mintel -l --visualize-jumps --disassembler-color=on'
 alias signal='signal-desktop --ozone-platform=wayland'
 alias log="git log --graph --oneline --color"
