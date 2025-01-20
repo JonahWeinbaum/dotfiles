@@ -12,7 +12,8 @@ output * {
 set $disp1 "LG Electronics LG ULTRAWIDE 0x00017025"
 set $disp2 "Apple Computer Inc iMac Unknown"
 set $disp3 "ViewSonic Corporation VX2739 Series RKD104920740"
-# Left haystack displa6
+
+# Left haystack display
 output $disp1 {
        mode 2560x1080@59.978Hz
        pos 0 0 

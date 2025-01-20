@@ -14,11 +14,9 @@ safe_link(){
 SCRIPT_PATH=`realpath $0`
 DOTFILES=`dirname $SCRIPT_PATH`
 
-exclude_list=("install.sh" ".gitignore", ".fonts", ".bashrc", ".zshrc")
-
 # Install other dotfiles
 for f in `ls -A $DOTFILES`; do
-    if [[ "install.sh" != "$f" ]] && [[ ".gitignore" != "$f" ]]; then
+    if [[ "install.sh" != "$f" ]] && [[ ".gitignore" != "$f" ]] && [[ ".basrc" != "$f" ]] && [[ ".zshrc" != "$f" ]]; then
 	safe_link "$DOTFILES/$f"
     fi
 done
@@ -28,25 +26,25 @@ if [[ -e "$HOME/`basename .bashrc`" ]]; then
     read -p "Are you sure you want to delete '.bashrc'? (y/n): " response
 
     if [[ "$response" == "y" ]] || [[ "$response" == "Y" ]]; then
-       rm "$HOME/`basename .bashrc`"
+	rm "$HOME/`basename .bashrc`"
+	safe_link "$DOTFILES/.bashrc"
        echo "$HOME/`basename .bashrc` has been deleted."
     else
        echo "$HOME/`basename .bashrc` was not deleted."
     fi
-    safe_link "$DOTFILES/.bashrc"
 fi
 
 if [[ -e "$HOME/`basename .zshrc`" ]]; then
-    echo "Detected bash terminal"
+    echo "Detected zsh terminal"
     read -p "Are you sure you want to delete '.zshrc'? (y/n): " response
 
     if [[ "$response" == "y" ]] || [[ "$response" == "Y" ]]; then
        rm "$HOME/`basename .zshrc`"
+       safe_link "$DOTFILES/.zshrc"
        echo "$HOME/`basename .zshrc` has been deleted."
     else
        echo "$HOME/`basename .zshrc` was not deleted."
     fi
-    safe_link "$DOTFILES/.zshrc"
 fi
 
 
