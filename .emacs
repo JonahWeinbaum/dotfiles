@@ -87,4 +87,5 @@
 			   (toggle-truncate-lines 0)
 					    ))
 
+(setq magit-diff-refine-hunk (quote all))
 
