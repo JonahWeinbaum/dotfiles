@@ -2,7 +2,8 @@
 opacity = 0.8
 
 [font]
-normal = { family = "VulfMono", style = "Regular" }
+normal = { family = "VulfMono", style = "Regular"}
+size = 13
 offset.x = 0
 offset.y = 3
 
