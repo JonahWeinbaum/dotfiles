@@ -1,0 +1,3 @@
+[gef]
+bruteforce_main_arena = True
+debug = True
