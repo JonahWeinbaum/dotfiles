@@ -1,1 +1,1 @@
-dashboard -layout assembly registers history breakpoints
+dashboard -layout source assembly registers breakpoints !expressions !history !memory !stack !threads !variables
