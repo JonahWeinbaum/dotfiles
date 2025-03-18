@@ -1,9 +1,34 @@
 (package-initialize)
 (require 'package)
 
+;; Straight package manager
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(setq package-enable-at-startup nil)
+
 ;; Additional  Archives
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
+;; Use apehleia package for formatting
+(use-package apheleia
+  :straight (apheleia :host github :repo "raxod502/apheleia")
+  :config
+  (apheleia-global-mode t))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -12,12 +37,13 @@
  ;; If there is more than one, they won't work right.
  '(TeX-command-list
    '(("LaTeX" "pdflatex --shell-escape %s.tex" TeX-run-TeX nil
-      (LaTeX-mode docTeX-mode)
-      :help "Run LaTeX")
-     ("View" "zathura %s.pdf" TeX-run-discard-or-function t t :help "Run Viewer")))
+      (LaTeX-mode docTeX-mode) :help "Run LaTeX")
+     ("View" "zathura %s.pdf" TeX-run-discard-or-function t t :help
+      "Run Viewer")))
  '(custom-enabled-themes '(tango-dark))
  '(package-selected-packages
-   '(magit smex jinx auto-correct auto-complete typescript-mode rust-mode auctex multiple-cursors)))
+   '(## auctex auto-complete auto-correct jinx magit multiple-cursors
+	rust-mode smex typescript-mode)))
 
 ;; Spellcheck coloring
 (custom-set-faces
@@ -85,7 +111,7 @@
 			   (define-key org-mode-map (kbd "C-c ?") nil)
                            (word-wrap-whitespace-mode t)
 			   (toggle-truncate-lines 0)
-					    ))
+			   ))
 
 (setq magit-diff-refine-hunk (quote all))
 
