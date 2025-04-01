@@ -16,7 +16,7 @@ DOTFILES=`dirname $SCRIPT_PATH`
 
 # Install other dotfiles
 for f in `ls -A $DOTFILES`; do
-    if [[ "install.sh" != "$f" ]] && [[ ".gitignore" != "$f" ]] && [[ ".basrc" != "$f" ]] && [[ ".zshrc" != "$f" ]]; then
+    if [[ "install.sh" != "$f" ]] && [[ ".git" != "$f" ]] && [[ ".gitignore" != "$f" ]] && [[ ".basrc" != "$f" ]] && [[ ".zshrc" != "$f" ]]; then
 	safe_link "$DOTFILES/$f"
     fi
 done
