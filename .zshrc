@@ -1,6 +1,9 @@
 #
-# ~/.bashrc
+# ~/.zshrc
 #
+
+# If not running interactively, don't do anything and return early
+[[ -o interactive ]] || exit 0
 
 # Check for SSH Connection
 if [[ -n $SSH_CONNECTION ]] ; then

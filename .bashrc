@@ -2,6 +2,9 @@
 # ~/.bashrc
 #
 
+# If not running interactively, don't do anything and return early
+[[ $- == *i* ]] || return  
+
 # Check for SSH Connection
 if [[ -n $SSH_CONNECTION ]] ; then
     figlet haystack;
