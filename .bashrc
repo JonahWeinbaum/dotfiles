@@ -53,6 +53,9 @@ BRIGHT_WHITE='\[\e[1;37m\]'
 # Reset Color
 RESET='\[\e[0m\]'
 
+# Run emacs in daemon mode
+"emacs" --daemon > /dev/null 2>&1 
+
 export LESS_TERMCAP_mb=$'\e[1;31m'    # Bold red
 export LESS_TERMCAP_md=$'\e[1;34m'    # Bold blue
 export LESS_TERMCAP_me=$'\e[0m'       # Reset
@@ -67,8 +70,8 @@ export MANROFFOPT="-P -c"
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-alias emacs="emacs -nw"
-alias magit='emacs --eval "(progn (magit-status) (delete-other-windows))"'
+alias emacs="emacsclient -nw"
+alias magit='"emacs" --eval "(progn (magit-status) (delete-other-windows))"'
 alias ls='ls --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias gef='gdb --command ~/.gef'

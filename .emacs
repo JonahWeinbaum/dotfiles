@@ -20,15 +20,14 @@
 
 (setq package-enable-at-startup nil)
 
-;; Additional  Archives
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
-;; Use apehleia package for formatting
-(use-package apheleia
-  :straight (apheleia :host github :repo "raxod502/apheleia")
-  :config
-  (apheleia-global-mode t))
+;; Package Installations 
+(straight-use-package 'auto-complete)
+(straight-use-package 'jinx)
+(straight-use-package 'smex)
+(straight-use-package 'apheleia)
+(straight-use-package 'multiple-cursors)
+(straight-use-package 'magit)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
